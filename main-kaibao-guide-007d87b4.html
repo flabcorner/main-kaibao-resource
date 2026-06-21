@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开宝体育 – 持续关注 · 回访即得</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f6fa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1d1f27;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0b0e17 0%, #1b1f2b 100%);
+            padding: 5rem 1.5rem 4rem;
+            color: #e9ecf2;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 60%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(75, 130, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #b6c1d6;
+            margin-top: 1.2rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero .meta {
+            display: inline-block;
+            margin-top: 1.8rem;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #9da9c2;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            letter-spacing: 0.3px;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 5rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.8rem;
+            color: #12141c;
+            border-left: 4px solid #2b5fd9;
+            padding-left: 1rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem 2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #0f121b;
+        }
+
+        .card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3f4452;
+            margin-top: 0.2rem;
+        }
+
+        .highlight {
+            background: #f0f3fc;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            margin: 2.8rem 0 2.5rem;
+            border-left: 6px solid #2b5fd9;
+        }
+
+        .highlight p {
+            font-size: 1.05rem;
+            color: #202433;
+            margin-bottom: 0.6rem;
+        }
+
+        .highlight strong {
+            color: #1a3b8a;
+        }
+
+        .usage-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2rem;
+            margin: 1.8rem 0 2.5rem;
+            padding: 0;
+            list-style: none;
+        }
+
+        .usage-steps li {
+            flex: 1 1 180px;
+            background: white;
+            padding: 1.2rem 1.4rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            border: 1px solid #eaeef5;
+            font-weight: 450;
+            color: #1f2535;
+        }
+
+        .usage-steps li span {
+            display: block;
+            font-size: 0.8rem;
+            color: #667084;
+            margin-top: 0.3rem;
+            font-weight: 400;
+        }
+
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem 2rem;
+            margin-top: 2.8rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #e8ecf3;
+            padding: 0.9rem 0;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: none;
+        }
+
+        .faq-mini summary {
+            font-weight: 550;
+            cursor: pointer;
+            color: #1c2340;
+            outline: none;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            margin-right: 0.6rem;
+            color: #2b5fd9;
+            transition: transform 0.15s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini details p {
+            margin: 0.6rem 0 0 1.6rem;
+            color: #3f4658;
+            font-size: 0.95rem;
+        }
+
+        .inline-link {
+            color: #2b5fd9;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(43, 95, 217, 0.3);
+            transition: border-color 0.15s, color 0.15s;
+            font-weight: 500;
+        }
+
+        .inline-link:hover {
+            color: #0f2e7a;
+            border-bottom-color: #0f2e7a;
+        }
+
+        .note-box {
+            background: #fafbfd;
+            border-radius: 16px;
+            padding: 1.2rem 1.8rem;
+            border: 1px solid #dee4ed;
+            color: #363d50;
+            font-size: 0.95rem;
+            margin: 2.2rem 0 1rem;
+        }
+
+        .note-box a {
+            color: #1f4ab3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1.5rem 2rem;
+            border-top: 1px solid #dce2ec;
+            color: #5e687e;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.35rem;
+            }
+            .card-grid {
+                gap: 1.2rem;
+            }
+            .highlight {
+                padding: 1.5rem;
+            }
+            .usage-steps li {
+                flex: 1 1 100%;
+            }
+            .faq-mini {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>再次打开 · 同一个入口</h1>
+    <p>产品页面持续迭代，适合收藏、回访与长期关注。<br>
+    不是一闪而过的活动页，而是稳定的功能锚点。</p>
+    <div class="meta">📌 产品说明 · 2025 · 简洁迭代</div>
+</section>
+
+<div class="container">
+
+    <!-- 摘要卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>产品摘要</h3>
+            <p><a href="https://main-kaibao.com" class="inline-link">开宝体育</a> 是一个围绕体育数据与赛事关注场景设计的轻量信息产品。定位介于聚合工具与实用参考之间，强调可反复调用的使用习惯。</p>
+        </div>
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>核心亮点</h3>
+            <p>结构清晰、加载快、无冗余装饰。适合在赛前、赛后或日常浏览中作为固定参考页。功能精简但覆盖常用维度。</p>
+        </div>
+        <div class="card">
+            <div class="icon">🔄</div>
+            <h3>回访价值</h3>
+            <p>页面内容随赛季与关注点微调，不依赖临时活动。收藏后每次打开都能快速获得语境，减少重新查找成本。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议 + 嵌入链接 -->
+    <h2 class="section-title">使用建议</h2>
+    <ul class="usage-steps">
+        <li>📎 收藏至浏览器书签 <span>下次从收藏夹直接打开，适合多次回访</span></li>
+        <li>📱 添加至主屏幕 <span>iOS / Android 均支持，体验接近原生入口</span></li>
+        <li>🏷️ 保持关注 <span>产品逻辑持续优化，偶尔查看可了解调整</span></li>
+    </ul>
+
+    <div class="highlight">
+        <p><strong>🔹 如果你第一次接触</strong><br>
+        建议先花两分钟浏览整体结构。之后再次访问时，你会更快定位到自己关心的部分。<br>
+        如果你已经使用过，不妨把 <a href="https://main-kaibao.com" class="inline-link">开宝体育</a> 放入常用标签页——它不需要每次重新适应。</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #3e4b6b;">不需要反复搜索，一个链接就够了。</p>
+    </div>
+
+    <!-- 场景提示 -->
+    <h2 class="section-title">典型场景</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-bottom: 2.2rem;">
+        <div style="background:#fff; padding:1rem 1.2rem; border-radius:16px; border:1px solid #eef2f8;">
+            <span style="font-weight:600;">赛前浏览</span><br><span style="font-size:0.9rem; color:#3b4357;">快速获取近期赛事信息与基础数据。</span>
+        </div>
+        <div style="background:#fff; padding:1rem 1.2rem; border-radius:16px; border:1px solid #eef2f8;">
+            <span style="font-weight:600;">赛后回顾</span><br><span style="font-size:0.9rem; color:#3b4357;">回到页面对照赛程与结果，辅助复盘。</span>
+        </div>
+        <div style="background:#fff; padding:1rem 1.2rem; border-radius:16px; border:1px solid #eef2f8;">
+            <span style="font-weight:600;">日常关注</span><br><span style="font-size:0.9rem; color:#3b4357;">不定期查看更新，保持对体育动态的感知。</span>
+        </div>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <div class="note-box">
+        <strong>📌 访问说明</strong><br>
+        本页面是产品介绍性质的独立页，主功能位于 <a href="https://main-kaibao.com" class="inline-link">开宝体育</a>。该链接指向的产品持续运行，但不会通过弹窗或诱导式引导要求用户操作。你可以自由选择访问频率，所有内容以实际显示为准。建议在信任的网络环境下打开，并留意浏览器地址栏的域名。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h3 style="font-weight:600; margin-bottom:1rem; font-size:1.1rem;">常见想法 · 简短说明</h3>
+        <details>
+            <summary>这个页面会频繁改动吗？</summary>
+            <p>产品介绍页会随功能迭代适度调整，但核心结构保持稳定。大版本变化前通常会有说明。</p>
+        </details>
+        <details>
+            <summary>是否需要注册或登录？</summary>
+            <p>当前产品介绍页不涉及注册。主功能页面以浏览为主，具体以实际页面提示为准。</p>
+        </details>
+        <details>
+            <summary>如何最快再次找到它？</summary>
+            <p>收藏本页或记住域名即可。将 <a href="https://main-kaibao.com" class="inline-link">开宝体育</a> 加入书签是推荐做法。</p>
+        </details>
+    </div>
+
+</div>
+
+<footer>
+    <span>产品介绍页 · 持续更新 · 2025</span>
+</footer>
+
+</body>
+</html>
